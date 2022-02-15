@@ -5,8 +5,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="{{url('css\style.css')}}">
-    <title> FAQ</title>
+    <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
+    <title>FAQ</title>
 
 </head>
 
@@ -30,6 +30,14 @@
 </h1>
 <br>
 <br>
+<ul>
+    @foreach($faqs as $faq)
+        <li>{{ $faq->question }}</li>
+        <li>{{ $faq->answer }}</li>
+    @endforeach
+</ul>
+
+
 
 
 <div class="bubbleFAQ">
@@ -62,8 +70,8 @@
         <div class="dropdown-content">
             <div class="bubbleFAQ">
                 Contact the teachers/helpdesk at school and stay home.
-                <br>Follow the lessons on stream <br>to compensate for that u
-                nusual sickness. <br>
+                <br>Follow the lessons on stream <br>to compensate for that
+                unusual sickness. <br>
             </div>
         </div>
     </div>
@@ -86,7 +94,7 @@
 <br>
 <div class="bubbleFAQ">
     <div class="dropdown">
-         <span> Where are instructions if you want to park your<br> car at the HZ parking lot?<br></snap>
+         <span> Where are instructions if you want to park your<br> car at the HZ parking lot?<br></span>
              <div class="dropdown-content">
                 <div class="bubbleFAQ">
                     You must park your car "across the road",<br> at the parking lot of the former PEZM.
@@ -98,7 +106,7 @@
 <br>
 <div class="bubbleFAQ">
     <div class="dropdown">
-         <span> where can i see what kind of activities i can do for my EC? <br></snap>
+        <span> where can i see what kind of activities i can do for my EC? <br></span>
              <div class="dropdown-content">
                 <div class="bubbleFAQ">
                     you can find it here,(insert link)

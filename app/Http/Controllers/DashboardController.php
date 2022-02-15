@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 class DashboardController
 {
-    public function dashboard()
+//    control function
+    public function show()
     {
         return view('dashboard');
     }

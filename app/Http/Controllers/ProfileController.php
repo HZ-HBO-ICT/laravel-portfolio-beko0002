@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class ProfileController
 {
-    public function profile()
+    public function show()
     {
         return view('profile');
     }

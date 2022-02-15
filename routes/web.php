@@ -35,15 +35,17 @@ use App\Http\Controllers\ProfileController;
 //    ]);
 //});
 
-Route::get('/welcome', [WelcomeController::class, 'show']);
+Route:: get('post', [PostController::class, 'show']);
 
-Route::get('/blog', [BlogController::class, 'blog']);
+Route::get('welcome', [WelcomeController::class, 'show']);
 
-Route::get('profile', [ProfileController::class, 'profile']);
+Route::get('blog', [BlogController::class, 'show']);
 
-Route::get('dashboard', [DashboardController::class, 'dashboard']);
+Route::get('profile', [ProfileController::class, 'show']);
 
-Route::get('faq', [FaqController::class, 'faq']);
+Route::get('dashboard', [DashboardController::class, 'show']);
+
+Route::get('faq', [FaqController::class, 'show']);
 
 
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class BlogController
 {
-    public function blog()
+    public function show()
     {
         return view('blog');
     }
