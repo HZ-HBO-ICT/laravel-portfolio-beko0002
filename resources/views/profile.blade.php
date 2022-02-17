@@ -1,43 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>my profile</title>
-</head>
-<body>
-<div class="header">
-    <b>Grace Fomo</b> <br>
-    welcome to my website
+@extends('layout')
 
-</div>
-
-
-<div class="topnav">
-    <a href="{{url('welcome')}}">Home</a>
-    <a class="active" href="{{url('profile')}}">Profile</a>
-    <a href="{{url('dashboard')}}">Dashboard</a>
-    <a href="{{url('faq')}}">FAQ</a>
-    <a href="{{url('blog')}}">Blog</a>
-</div>
-<br><br><br>
-
-
-<div class="cardProfile">
-    <img src="./img/sun.jpeg" alt="summer" class="center imgborder" style="width:90%" >
-    <div class="containerProfile">
-        <h4><b>GRACE FOMO</b></h4>
-        <p> ICT student</p>
-        <p>first year</p>
-        <p>22-12-2000</p>
-    </div>
-</div>
+@section('content')
 
 
 
-<br><br>
+    <br><br>
 
 <div class="rowProfile">
     <div class="column">
@@ -130,13 +97,7 @@
 <br>
 <br>
 
-</div>
-<div class="footer">
-    <footer>
-        made by GRACE FOMO
-    </footer>
-</div>
+@endsection
 
 
-</body>
-</html>
+

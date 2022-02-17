@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
-    <title>dashboard</title>
-</head>
-<body>
-<div class="header">
-    <b>Grace Fomo</b> <br>
-    welcome to my website
+@extends('layout')
 
-</div>
-<div class="topnav">
-    <a href="{{url('welcome')}}">Home</a>
-    <a href="{{url('profile')}}">Profile</a>
-    <a class="active" href="{{url('dashboard')}}">Dashboard</a>
-    <a href="{{url('faq')}}">FAQ</a>
-    <a href="{{url('bolg')}}">Blog</a>
-</div>
+@section('content')
 
 <br><br>
 
@@ -142,14 +123,5 @@
 <br>
 <br>
 
-<div class="footer">
-    <footer>
-        made by GRACE FOMO
-    </footer>
-</div>
 
-
-
-
-</body>
-</html>
+@endsection

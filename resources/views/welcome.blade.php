@@ -1,36 +1,8 @@
-<!DOCTYPE html>
-<html>
+@extends('layout')
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home</title>
-</head>
-
-<body>
+@section('content')
 
 
-<div class="header">
-    <b>Grace Fomo</b> <br>
-    welcome to my website
-
-</div>
-
-<div class="topnav">
-    <a href="https://hz.nl/en">
-        <!--idk how to fix the logo with no borders-->
-        <img src=" img/hz-logo2.jpeg" class="center imglogo" width="60px" height="55px">
-    </a>
-    <a class="active" href="{{url('welcome')}}">Home</a>
-    <a href="{{url('profile')}}">Profile</a>
-    <a href="{{url('dashboard')}}">Dashboard</a>
-    <a href="{{url('faq')}}">FAQ</a>
-    <a href="{{url('blog')}}">Blog</a>
-
-</div>
 
 <div class="row-index">
     <br><br><br>
@@ -140,12 +112,4 @@
 <br>
 <!-- why is my footer not in the center -->
 
-<div class="footer">
-    <footer>
-        made by GRACE FOMO
-    </footer>
-</div>
-
-</body>
-
-</html>
+@endsection

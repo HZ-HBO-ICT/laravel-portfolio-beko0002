@@ -31,7 +31,7 @@
 <br>
 <br>
 <ul>
-    @foreach($faqs as $faq)
+    @foreach($faq as $faq)
         <li>{{ $faq->question }}</li>
         <li>{{ $faq->answer }}</li>
     @endforeach
@@ -153,12 +153,7 @@
 <br>
 
 
-<div class="footer">
-    <footer>
-        made by GRACE FOMO
-        <br>
-    </footer>
-</div>
+
 
 </body>
 

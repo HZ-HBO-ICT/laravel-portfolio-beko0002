@@ -37,7 +37,7 @@ use App\Http\Controllers\ProfileController;
 
 Route:: get('post', [PostController::class, 'show']);
 
-Route::get('welcome', [WelcomeController::class, 'show']);
+Route::get('/welcome', [WelcomeController::class, 'show']);
 
 Route::get('blog', [BlogController::class, 'show']);
 
