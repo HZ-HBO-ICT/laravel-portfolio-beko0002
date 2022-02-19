@@ -31,7 +31,7 @@
 <br>
 <br>
 <ul>
-    @foreach($faq as $faq)
+    @foreach($faq as $faqs)
         <li>{{ $faq->question }}</li>
         <li>{{ $faq->answer }}</li>
     @endforeach

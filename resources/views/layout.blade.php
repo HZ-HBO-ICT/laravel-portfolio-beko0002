@@ -28,6 +28,7 @@
     <a class="{{ Request::path() ==='dashboard' ? 'active': '' }}" href="{{url('dashboard')}}">Dashboard</a>
     <a class="{{ Request::path() ==='faq' ? 'active': '' }}"href="{{url('faq')}}">FAQ</a>
     <a class="{{ Request::path() ==='blog' ? 'active': '' }}"href="{{url('blog')}}">Blog</a>
+    <a class="{{ Request::path() ==='articles' ? 'active': '' }}"href="{{url('articles')}}">Articles</a>
 
 </div>
 

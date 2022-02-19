@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class  GradeFactory extends Factory
+class ArticleFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +14,9 @@ class  GradeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->title,
+            'excerpt' => $this->faker->paragraph,
+            'body' => $this->faker->paragraph,
         ];
     }
 }

@@ -40,6 +40,16 @@ Route:: get('post', [PostController::class, 'show']);
 Route::get('/welcome', [WelcomeController::class, 'show']);
 
 Route::get('blog', [BlogController::class, 'show']);
+// i actually don't know what this does
+Route::get('blog', function(){
+    $articles= App\Article::latest()->get();
+    return view('blog',[
+        'article' =>$articles
+    ]);
+
+});
+Route::get('/articles/{article}','ArticleController@index' );
+Route::get('/articles/{article}','ArticleController@show' );
 
 Route::get('profile', [ProfileController::class, 'show']);
 

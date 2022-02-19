@@ -62,16 +62,13 @@
 
 <div class="experience">
     <div class="card">
-        <h2>motivation</h2>
-        <p class="blog">why did I choose ICT? is the biggest question to answer this semester.
-            There can be multiple answer to this. The first is the I didn’t want to study math.
-            The other is that I don’t want do psychology because of my father.
-            The reason behind this is that he is not that good of a person, and
-            I really wanted to understand why I did certain thing. Later,
-            I realised that I wasn’t doing it for me but and at the end of the day it is my future.
+        @foreach($articles as $article)
+            <h2><a href="/ articles/{{$article->id }}">{{$article->title }} </a></h2>
+        <p class="blog">{{$article->excerpt}}
         </p>
         updated 10-10-2021
         <br><br><br><br>
+        @endforeach
     </div>
 
     <br><br><br><br><br><br><br><br>
@@ -106,7 +103,7 @@
                     and are we providing you with the prettiest gifts with name, photo,
                     and logo, whether the gift is personal or for business purposes.
                     These personal gifts make your moments even more special and make you and others feel extra happy.
-                    This is also the reason I choose this company compared to others. They a lot of creative freedom.
+                    This is also the reason I choose this company compared to others. There is a lot of creative freedom.
                     This is something I appreciate. I don’t see myself working at a company where I can’t show my creative side.
                     The campus is so made that there is a place for everyone to feel at home or at least pleasant.
                     Since the company is international. The company offers many ICT jobs such as E-commerce, IT,
@@ -149,6 +146,6 @@
 
         <br><br><br><br><br>
 
-      
+
 
 @endsection
