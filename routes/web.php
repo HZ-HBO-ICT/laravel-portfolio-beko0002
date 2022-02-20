@@ -62,21 +62,23 @@ Route::get('/blog', function(){
         'article' =>$articles
     ]);
 });
-Route::get('/articles/{article}','ArticleController@index' );
-Route::post('/articles ','ArticleController@store' );
-Route::get('/articles/create','ArticleController@create ' );
-Route::get('/articles/{article}','ArticleController@show' );
+//Route::get('/articles/{article}','ArticleController@index');
+//Route::post('/articles ','ArticleController@store');
+//Route::get('/articles/create','ArticleController@create');
+//Route::get('/articles/{article}','ArticleController@show');
+//Route::get('/articles/{article}/edit ','ArticleController@edit');
+//Route::put('/articles/{article}','ArticleController@Update');
+Route::resource('/articles', ArticleController::class);
 
 
 
 Route::get('/faq', [FaqController::class, 'show']);
-// faq page
-Route::get('/faq', [FaqController::class, 'index']);
-Route::post('/faq', [FaqController::class, 'store']);
-Route::get('/faq/create', [FaqController::class, 'create']);
-Route::get('/faq/{id}/edit', [FaqController::class, 'edit']);
-Route::put('/faq/{id}', [FaqController::class, 'update']);
-Route::delete('/faq/{id}', [FaqController::class, 'destroy']);
+//// faq page
+//Route::get('/faq', [FaqController::class, 'index']);
+//Route::post('/faq', [FaqController::class, 'store']);
+//Route::get('/faq/create', [FaqController::class, 'create']);
+//Route::get('/faq/{id}/edit', [FaqController::class, 'edit']);
+//Route::put('/faq/{id}', [FaqController::class, 'update']);
 Route::resource('/faq', FaqController::class);
 
 

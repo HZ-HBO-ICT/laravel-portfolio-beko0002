@@ -7,7 +7,7 @@ use App\Models\Faq;
 
 class FaqController
 {
-    public function show()
+    public function index()
     {
         //render one faq om the page
         $faqs = Faq::all();
@@ -16,14 +16,11 @@ class FaqController
         ]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function show()
     {
         //
+
     }
 
 
@@ -48,24 +45,16 @@ class FaqController
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Faq  $faqs
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
+        $faqs = Faq::find($id);
+
+        return view('faq_edit', ['faq' => $faqs]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateGradeRequest  $request
-     * @param  \App\Models\Faq  $faqs
-     * @return \Illuminate\Http\Response
-     */
+
     public function update($id)
     {
 
@@ -77,12 +66,7 @@ class FaqController
         $faqs->save();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Faq $faqs
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $faqs = Faq::find($id);
