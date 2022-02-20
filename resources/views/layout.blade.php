@@ -23,14 +23,17 @@
         <!--idk how to fix the logo with no borders-->
         <img src=" img/hz-logo2.jpeg" class="center imglogo" width="60px" height="55px">
     </a>
-    <a class="{{ Request::path() ==='welcome' ? 'active': '' }}" href="{{url('welcome')}}">Home</a>
-    <a class="{{ Request::path() ==='profile' ? 'active': '' }}" href="{{url('profile')}}">Profile</a>
-    <a class="{{ Request::path() ==='dashboard' ? 'active': '' }}" href="{{url('dashboard')}}">Dashboard</a>
-    <a class="{{ Request::path() ==='faq' ? 'active': '' }}"href="{{url('faq')}}">FAQ</a>
-    <a class="{{ Request::path() ==='blog' ? 'active': '' }}"href="{{url('blog')}}">Blog</a>
-    <a class="{{ Request::path() ==='articles' ? 'active': '' }}"href="{{url('articles')}}">Articles</a>
+    <a class="{{ Request::path() ==='/welcome' ? 'active': '' }}" href="{{url('/welcome')}}">Home</a>
+    <a class="{{ Request::path() ==='/profile' ? 'active': '' }}" href="{{url('/profile')}}">Profile</a>
+    <a class="{{ Request::path() ==='/dashboard' ? 'active': '' }}" href="{{url('/dashboard')}}">Dashboard</a>
+    <a class="{{ Request::path() ==='/faq' ? 'active': '' }}"href="{{url('/faq')}}">FAQ</a>
+    <a class="{{ Request::path() ==='/blog' ? 'active': '' }}"href="{{url('/blog')}}">Blog</a>
+    <a class="{{ Request::path() ==='/articles' ? 'active': '' }}"href="{{url('/articles')}}">Articles</a>
 
 </div>
+<h1>
+    @yield('title_page')
+</h1>
 
 @yield('content')
 

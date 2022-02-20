@@ -26,7 +26,7 @@
 <br>
 <br>
 <h1>
-    Frequently asked questions
+Frequently asked questions
 </h1>
 <br>
 <br>

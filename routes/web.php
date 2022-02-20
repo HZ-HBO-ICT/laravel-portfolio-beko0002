@@ -35,27 +35,49 @@ use App\Http\Controllers\ProfileController;
 //    ]);
 //});
 
-Route:: get('post', [PostController::class, 'show']);
+Route:: get('/post', [PostController::class, 'show']);
 
 Route::get('/welcome', [WelcomeController::class, 'show']);
 
-Route::get('blog', [BlogController::class, 'show']);
+Route::get('/profile', [ProfileController::class, 'show']);
+
+Route::get('/dashboard', [DashboardController::class, 'show']);
+
+Route::get('/blog', [BlogController::class, 'show']);
+// blog page
+Route::get('/blog', [BlogController::class, 'index']);
+Route::post('/blog', [BlogController::class, 'store']);
+Route::get('/blog/create', [BlogController::class, 'create']);
+Route::get('/blog/{blog}', [BlogController::class, 'showBlog']);
+Route::get('/blog/{blog}/edit', [BlogController::class, 'edit']);
+Route::put('/blog/{blog}', [BlogController::class, 'update']);
+Route::delete('/blog/{blog}', [BlogController::class, 'destroy']);
+Route::resource('/blog', BlogController::class);
+
+
 // i actually don't know what this does
-Route::get('blog', function(){
+Route::get('/blog', function(){
     $articles= App\Article::latest()->get();
-    return view('blog',[
+    return view('/blog',[
         'article' =>$articles
     ]);
-
 });
 Route::get('/articles/{article}','ArticleController@index' );
+Route::post('/articles ','ArticleController@store' );
+Route::get('/articles/create','ArticleController@create ' );
 Route::get('/articles/{article}','ArticleController@show' );
 
-Route::get('profile', [ProfileController::class, 'show']);
 
-Route::get('dashboard', [DashboardController::class, 'show']);
 
-Route::get('faq', [FaqController::class, 'show']);
+Route::get('/faq', [FaqController::class, 'show']);
+// faq page
+Route::get('/faq', [FaqController::class, 'index']);
+Route::post('/faq', [FaqController::class, 'store']);
+Route::get('/faq/create', [FaqController::class, 'create']);
+Route::get('/faq/{id}/edit', [FaqController::class, 'edit']);
+Route::put('/faq/{id}', [FaqController::class, 'update']);
+Route::delete('/faq/{id}', [FaqController::class, 'destroy']);
+Route::resource('/faq', FaqController::class);
 
 
 
