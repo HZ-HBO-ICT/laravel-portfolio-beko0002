@@ -34,7 +34,7 @@ class ArticlesController extends Controller
     public function store()
     {
        //persist a new article
-        $article = new Blog();
+        $article = new Article ();
 
         $article->title = request('title');
         $article->excerpt = request('excerpt');
