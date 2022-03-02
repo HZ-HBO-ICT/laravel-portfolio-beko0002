@@ -1,129 +1,45 @@
-<!DOCTYPE html>
-<html>
+@extends('layout')
 
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
-    <title>FAQ</title>
+@section('title_page')
+    faq
+@endsection
 
-</head>
+@section('header')
 
-<body>
-<div class="header">
-    <b>Grace Fomo</b> <br>
-    welcome to my website
+    Frequently asked questions
 
-</div>
-<div class="topnav">
-    <a href="{{url('welcome')}}">Home</a>
-    <a href="{{url('profile')}}">Profile</a>
-    <a href="{{url('dashboard')}}">Dashboard</a>
-    <a class="active" href="{{url('faq')}}">FAQ</a>
-    <a href="{{url('blog')}}">Blog</a>
-</div>
+    @endsection
+
+
+    @section('content')
+
+
 <br>
 <br>
-<h1>
-Frequently asked questions
-</h1>
-<br>
-<br>
-<ul>
-    @foreach($faq as $faqs)
-        <li>{{ $faq->question }}</li>
-        <li>{{ $faq->answer }}</li>
-    @endforeach
-</ul>
-
-
-
-
+{{--// how do i make this to be faqs instead of faq--}}
+@foreach($faq as $faq)
 <div class="bubbleFAQ">
     <div class="dropdown">
-        <span>How can you print a document from your laptop at HZ?<br></span>
+        <span>{{ $faq->question }}</span>
         <div class="dropdown-content">
             <div class="bubbleFAQ">
-                By Simply connecting to one of the printers at school.
+                {{ $faq->answer }}
             </div>
         </div>
     </div>
 </div>
-<br>
-<br>
-<div class="bubbleFAQ">
-    <div class="dropdown">
-        <span>How can you scan a document a send it to your laptop at HZ?<br></span>
-        <div class="dropdown-content">
-            <div class="bubbleFAQ">
-                Use the same printer, scan your paper <br> and it should added on yourpc if you do it right.
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<br>
-<div class="bubbleFAQ">
-    <div class="dropdown">
-        <span> What do you need to do when you show <br>symptoms of coronavirus?<br></span>
-        <div class="dropdown-content">
-            <div class="bubbleFAQ">
-                Contact the teachers/helpdesk at school and stay home.
-                <br>Follow the lessons on stream <br>to compensate for that
-                unusual sickness. <br>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<br>
-<div class="bubbleFAQ">
-    <div class="dropdown">
-        <span>Can you book a project space in one of the wing?<br> </span>
-        <div class="dropdown-content">
-            <div class="bubbleFAQ">
-                You can book a room on the HZ page after <br>logging in by pressing the
-                <br>Selfservice Portal, it should be easy from
-                thereon out.
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<br>
-<div class="bubbleFAQ">
-    <div class="dropdown">
-         <span> Where are instructions if you want to park your<br> car at the HZ parking lot?<br></span>
-             <div class="dropdown-content">
-                <div class="bubbleFAQ">
-                    You must park your car "across the road",<br> at the parking lot of the former PEZM.
-                </div>
-            </div>
-    </div>
-</div>
-<br>
-<br>
-<div class="bubbleFAQ">
-    <div class="dropdown">
-        <span> where can i see what kind of activities i can do for my EC? <br></span>
-             <div class="dropdown-content">
-                <div class="bubbleFAQ">
-                    you can find it here,(insert link)
-                </div>
-            </div>
-    </div>
-</div>
-</p>
+    <br>
+    <br>
+@endforeach
+
 
 <br>
 <br>
 <br>
 <br>
 <h3>
-    If you have more questions, write it here and it will be answer ASAP
+    If you have more questions, write it here, and it will be answered ASAP
 </h3>
-
 
 
 
@@ -135,16 +51,41 @@ Frequently asked questions
 
         </div>
         <div class="input-group">
-            <input type="text" name="name" required>
+            <input
+                type="text"
+                name="name"
+                required
+                value="{{old('name')}}">
             <label for="name"> Name</label>
+
+            @error('name')
+              <p class="help is-danger">{{$errors->first('name')}}</p>
+            @enderror
         </div>
         <div class="input-group">
-            <input type="email" name="email" required>
+            <input
+                type="email"
+                name="email"
+                required
+                value="{{old('email')}}">
             <label for="email">Email</label>
+
+            @error('email')
+              <p class="help is-danger">{{$errors->first('email')}}</p>
+            @enderror
         </div>
         <div class="input-group">
             <textarea name="message" rows="10" required></textarea>
             <label for="message">Message</label>
+            <input
+                type="message"
+                name="message"
+                required
+                value="{{old('message')}}">
+
+            @error('message')
+               <p class="help is-danger">{{$errors->first('message')}}</p>
+            @enderror
         </div>
         <button type="submit"> Submit</button>
     </form>
@@ -158,3 +99,4 @@ Frequently asked questions
 </body>
 
 </html>
+    @endsection

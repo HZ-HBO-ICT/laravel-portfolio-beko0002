@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFaqRequest;
 use App\Http\Requests\UpdateFaqRequest;
 use App\Models\Faq;
+use Illuminate\Http\Request;
 
 class FaqController
 {
@@ -21,6 +22,7 @@ class FaqController
     {
         //
 
+
     }
 
 
@@ -31,39 +33,43 @@ class FaqController
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
-        //
-        $faqs = new Faq();
+        //persist a new FAQ
 
-        $faqs->question = request('question');
-        $faqs->answer = request('answer');
+        Faq::create($this->ValidateArticle($request));
 
-        $faqs->save();
-
+        // redirecting to show a page
         return redirect('/faq');
     }
 
 
-
+//This function is to show an edited faq that already exists
     public function edit($id)
     {
         //
+
+        request()->validate([
+            'question'=>'required',
+            'answer'=>['required', 'min:3', 'max:255']
+        ]);
         $faqs = Faq::find($id);
 
         return view('faq_edit', ['faq' => $faqs]);
     }
 
 
-    public function update($id)
+    public function update($faqs, Request $request)
     {
 
-        $faqs = Faq::find($id);
+        //$validatedAttributes = $this->validateArticle();
 
-        $faqs->question = request('question');
-        $faqs->answer = request('answer');
+        Faq::create($this->ValidateArticle($request));
 
         $faqs->save();
+
+        // redirecting to show a page
+        return redirect('/faq');
     }
 
 
@@ -73,6 +79,21 @@ class FaqController
 
         $faqs->delete();
 
+        // redirecting to show a page
         return redirect('/faq');
+    }
+
+
+    /**
+     * @return array
+     */
+    public function ValidateArticle(Request $request): array
+    {
+        $validatedAttributes = $request->validate([
+            'question' => 'required',
+            'answer' => ['required', 'min:3', 'max:255']
+
+        ]);
+        return $validatedAttributes;
     }
 }

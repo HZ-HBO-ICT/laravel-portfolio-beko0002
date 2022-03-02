@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 
-use App\Models\Grade;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -13,56 +12,71 @@ class ArticlesController extends Controller
     {
         $articles= Article::latest()->get();
 
-        return view('articles.index',['articles'=>$articles]);
+        return view('articles.index', ['articles'=>$articles]);
 
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
+//
 
-        $article = Article::find($id);
-
-        return view('article.show', ['article'=> $article]);
+        return view('articles.show', ['article'=> $article]);
 
     }
+
+
+
 
     public function create()
     {
-        return view('article.create');
+        return view('articles.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
        //persist a new article
-        $article = new Article ();
 
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-
-        $article->save();
+        Article::create($this->ValidateArticle($request));
 
         return redirect('/articles');
     }
 
-    public function edit($id)
-    {
-        $article = Article::find($id);
 
-         return view('article.edit',['article'=>$article]);
+
+
+
+
+
+    public function edit(Article $article)
+    {
+
+         return view('articles.edit',['article'=>$article]);
     }
 
-    public function update($id){
 
-        $article = Article::find($id);
 
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
 
-        $article->save();
+    public function update(Article $article, Request $request){
+
+        //$validatedAttributes = $this->validateArticle();
+
+        $article->update($this->ValidateArticle($request));
 
         return redirect('/articles/'.$article->id);
+    }
+
+    /**
+     * @return array
+     */
+    public function ValidateArticle(Request $request): array
+    {
+        $validatedAttributes =  $request->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => ['required', 'min:3', 'max:255']
+
+        ]);
+        return  $validatedAttributes;
     }
 }
 

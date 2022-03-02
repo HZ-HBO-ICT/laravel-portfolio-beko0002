@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title_page')
+    profile
+@endsection
+
 @section('content')
 
 

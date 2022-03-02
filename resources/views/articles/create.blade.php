@@ -20,15 +20,40 @@
             </div>
             <div class="input-group">
                 <label for="title"> Title</label>
-                <input type="text" name="title" required>
+                <input
+                    type="text"
+                    name="title"
+                    required
+                    value="{{old('title')}}">
+
+                @error('title')
+                    <p class="help is-danger">{{$errors->first('title')}}</p>
+                @enderror
+
             </div>
             <div class="input-group">
                 <label for="excerpt">Excerpt</label>
-                <input type="text" name="excerpt" required>
+                <input
+                    type="text"
+                    name="excerpt"
+                    required
+                    value="{{old('excerpt')}}">
+
+                @error('excerpt')
+                   <p class="help is-danger">{{$errors->first('excerpt')}}</p>
+                @enderror
             </div>
             <div class="input-group">
                 <label for="body">Body</label>
-                <input type="text" name="body" required>
+                <input
+                    type="text"
+                    name="body"
+                    required
+                    value="{{old('body')}}">
+
+                @error('body')
+                   <p class="help is-danger">{{$errors->first('body')}}</p>
+                @enderror
             </div>
             <button type="submit"> Submit</button>
         </form>

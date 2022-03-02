@@ -1,5 +1,8 @@
 @extends('layout')
 
+@section('title_page')
+    Home
+@endsection
 @section('content')
 
 

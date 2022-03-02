@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->string('title');
             $table->text('body');
-            $table->timestamps();
             $table->timestamp('published_art')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -20,11 +20,27 @@
         </div>
         <div class="input-group">
             <label for="question"> Questions</label>
-            <input type="text" name="question" required>
+            <input
+                type="text"
+                name="question"
+                required
+                value="{{old('question')}}">
+
+            @error('question')
+            <p class="help is-danger">{{$errors->first('question')}}</p>
+            @enderror
         </div>
         <div class="input-group">
             <label for="answer">Answer</label>
-            <input type="textl" name="answer" required>
+            <input
+                type="text"
+                name="answer"
+                required
+                 ">
+
+            @error('answer')
+                <p class="help is-danger">{{$errors->first('answer')}}</p>
+            @enderror
         </div>
         <button type="submit"> Submit</button>
     </form>

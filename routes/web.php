@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ArticlesController;
 
 
 
@@ -37,7 +38,7 @@ use App\Http\Controllers\ProfileController;
 
 Route:: get('/post', [PostController::class, 'show']);
 
-Route::get('/welcome', [WelcomeController::class, 'show']);
+Route::get('/', [WelcomeController::class, 'show']);
 
 Route::get('/profile', [ProfileController::class, 'show']);
 
@@ -45,19 +46,19 @@ Route::get('/dashboard', [DashboardController::class, 'show']);
 
 Route::get('/blog', [BlogController::class, 'show']);
 // blog page
-Route::get('/blog', [BlogController::class, 'index']);
-Route::post('/blog', [BlogController::class, 'store']);
-Route::get('/blog/create', [BlogController::class, 'create']);
-Route::get('/blog/{blog}', [BlogController::class, 'showBlog']);
-Route::get('/blog/{blog}/edit', [BlogController::class, 'edit']);
-Route::put('/blog/{blog}', [BlogController::class, 'update']);
-Route::delete('/blog/{blog}', [BlogController::class, 'destroy']);
-Route::resource('/blog', BlogController::class);
+//Route::get('/blog', [BlogController::class, 'index']);
+//Route::post('/blog', [BlogController::class, 'store']);
+//Route::get('/blog/create', [BlogController::class, 'create']);
+//Route::get('/blog/{blog}', [BlogController::class, 'showBlog']);
+//Route::get('/blog/{blog}/edit', [BlogController::class, 'edit']);
+//Route::put('/blog/{blog}', [BlogController::class, 'update']);
+//Route::delete('/blog/{blog}', [BlogController::class, 'destroy']);
+Route::resource('/blog', BlogController::class)->only(['show']);
 
 
 // i actually don't know what this does
 Route::get('/blog', function(){
-    $articles= App\Article::latest()->get();
+    $articles= App\Models\Article::latest()->get();
     return view('/blog',[
         'article' =>$articles
     ]);
@@ -68,7 +69,7 @@ Route::get('/blog', function(){
 //Route::get('/articles/{article}','ArticleController@show');
 //Route::get('/articles/{article}/edit ','ArticleController@edit');
 //Route::put('/articles/{article}','ArticleController@Update');
-Route::resource('/articles', ArticleController::class);
+Route::resource('/articles', ArticlesController::class);
 
 
 

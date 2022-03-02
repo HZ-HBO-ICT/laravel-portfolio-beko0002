@@ -32,7 +32,7 @@ class DashboardSeeder extends Seeder
             'test_name' => 'Written Exam',
             'lowest_passing_grade' => 5.5,
             'best_grade' => 5.4,
-            'passed_at' => Carbon::now(),
+            'passed_at' => null(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -43,7 +43,7 @@ class DashboardSeeder extends Seeder
             'test_name' => 'Case Study',
             'lowest_passing_grade' => 5.5,
             'best_grade' => 5,
-            'passed_at' => Carbon::now(),
+            'passed_at' => null(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -60,7 +60,7 @@ class DashboardSeeder extends Seeder
         ]);
 
         DB::table('grades')->insert([
-            'quartile' => 'QuaObject Orientated Programming',
+            'quartile' => 'Object Orientated Programming',
             'test_name' => 'Project',
             'lowest_passing_grade' => 5.5,
             'best_grade' => 7.5,

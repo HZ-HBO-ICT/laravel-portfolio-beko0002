@@ -23,10 +23,18 @@
         <div class="input-group">
             <label for="question"> Questions</label>
             <input type="text" name="question"  value="{{$faq->question}}" required>
+
+            @error('question')
+               <p class="help is-danger">{{$errors->first('question')}}</p>
+            @enderror
         </div>
         <div class="input-group">
             <label for="answer">Answer</label>
             <input type="text" name="answer" required value="{{$faq->answer}}">
+
+            @error('answer')
+                <p class="help is-danger">{{$errors->first('answer')}}</p>
+            @enderror
         </div>
         <button type="submit"> Submit</button>
     </form>

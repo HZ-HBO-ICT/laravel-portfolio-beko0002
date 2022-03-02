@@ -7,7 +7,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>home</title>
+    <title>
+        @yield('title_page')
+    </title>
 </head>
 
 <body>
@@ -19,20 +21,20 @@
 </div>
 
 <div class="topnav">
-    <a href="https://hz.nl/en">
+    <a href="https:/hz.nl/en">
         <!--idk how to fix the logo with no borders-->
         <img src=" img/hz-logo2.jpeg" class="center imglogo" width="60px" height="55px">
     </a>
-    <a class="{{ Request::path() ==='/welcome' ? 'active': '' }}" href="{{url('/welcome')}}">Home</a>
-    <a class="{{ Request::path() ==='/profile' ? 'active': '' }}" href="{{url('/profile')}}">Profile</a>
-    <a class="{{ Request::path() ==='/dashboard' ? 'active': '' }}" href="{{url('/dashboard')}}">Dashboard</a>
-    <a class="{{ Request::path() ==='/faq' ? 'active': '' }}"href="{{url('/faq')}}">FAQ</a>
-    <a class="{{ Request::path() ==='/blog' ? 'active': '' }}"href="{{url('/blog')}}">Blog</a>
-    <a class="{{ Request::path() ==='/articles' ? 'active': '' }}"href="{{url('/articles')}}">Articles</a>
+    <a class="{{ Request::path() ==='welcome' ? 'active': '' }}" href="{{url('/')}}">Home</a>
+    <a class="{{ Request::path() ==='profile' ? 'active': '' }}" href="{{url('/profile')}}">Profile</a>
+    <a class="{{ Request::path() ==='dashboard' ? 'active': '' }}" href="{{url('/dashboard')}}">Dashboard</a>
+    <a class="{{ Request::path() ==='faq' ? 'active': '' }}"href="{{url('/faq')}}">FAQ</a>
+    <a class="{{ Request::path() ==='blog' ? 'active': '' }}"href="{{url('/blog')}}">Blog</a>
+    <a class="{{ Request::path() ==='articles' ? 'active': '' }}"href="{{url('/articles')}}">Articles</a>
 
 </div>
 <h1>
-    @yield('title_page')
+    @yield('header')
 </h1>
 
 @yield('content')

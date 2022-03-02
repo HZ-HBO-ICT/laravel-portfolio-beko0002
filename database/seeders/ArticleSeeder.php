@@ -15,14 +15,16 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 100; $i++) {
+//        for($i = 0; $i < 100; $i++) {
 
+        Article::factory(100)->create();
 
             DB::table('articles')->insert([
-                'title' => Str::random(10),
-                'expert' => Str::random(10),
-                'body' => Str::random(100),
+                'title' => Str::random(1000),
+                'expert' => Str::random(10000),
+                'body' => Str::random(1000000),
+                ''
             ]);
-        }
+//        }
     }
 }
