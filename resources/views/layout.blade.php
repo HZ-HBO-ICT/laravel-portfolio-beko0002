@@ -23,7 +23,7 @@
 <div class="topnav">
     <a href="https:/hz.nl/en">
         <!--idk how to fix the logo with no borders-->
-        <img src=" img/hz-logo2.jpeg" class="center imglogo" width="60px" height="55px">
+        <img src="/img/hz-logo2.jpeg" class="center imglogo" width="60px" height="55px">
     </a>
     <a class="{{ Request::path() ==='welcome' ? 'active': '' }}" href="{{url('/')}}">Home</a>
     <a class="{{ Request::path() ==='profile' ? 'active': '' }}" href="{{url('/profile')}}">Profile</a>

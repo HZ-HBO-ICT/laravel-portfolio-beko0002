@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\GradeController;
 
 
 
@@ -63,6 +64,8 @@ Route::get('/blog', function(){
         'article' =>$articles
     ]);
 });
+
+// Routing for the Article page
 //Route::get('/articles/{article}','ArticleController@index');
 //Route::post('/articles ','ArticleController@store');
 //Route::get('/articles/create','ArticleController@create');
@@ -72,7 +75,7 @@ Route::get('/blog', function(){
 Route::resource('/articles', ArticlesController::class);
 
 
-
+// Routing for the FAQ
 Route::get('/faq', [FaqController::class, 'show']);
 //// faq page
 //Route::get('/faq', [FaqController::class, 'index']);
@@ -82,5 +85,8 @@ Route::get('/faq', [FaqController::class, 'show']);
 //Route::put('/faq/{id}', [FaqController::class, 'update']);
 Route::resource('/faq', FaqController::class);
 
+// Routing for the grades
+//Route::get('/grades', [GradeController::class, 'show']);
+Route::resource('/grades', GradeController::class);
 
 

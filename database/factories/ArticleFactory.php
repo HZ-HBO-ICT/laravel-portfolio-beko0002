@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+
 class ArticleFactory extends Factory
 {
     /**
@@ -15,8 +16,8 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => $this->faker->title,
-            'excerpt' => $this->faker->paragraph,
-            'body' => $this->faker->paragraph,
+            'excerpt' => $this->faker->text,
+            'body' => $this->faker->text,
         ];
     }
 }

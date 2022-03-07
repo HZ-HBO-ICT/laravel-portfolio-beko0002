@@ -70,13 +70,12 @@ class ArticlesController extends Controller
      */
     public function ValidateArticle(Request $request): array
     {
-        $validatedAttributes =  $request->validate([
+        return $request->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'body' => ['required', 'min:3', 'max:255']
 
         ]);
-        return  $validatedAttributes;
     }
 }
 

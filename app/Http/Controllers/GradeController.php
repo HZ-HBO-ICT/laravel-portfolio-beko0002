@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreGradeRequest;
-use App\Http\Requests\UpdateGradeRequest;
 use App\Models\Grade;
+use Illuminate\Http\Request;
 
 class GradeController extends Controller
 {
@@ -15,7 +14,10 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+//        $grades= Grade::latest()->get();
+        $grades= Grade::all();
+
+        return view('grades.index', ['grades'=>$grades]);
     }
 
     /**
@@ -25,18 +27,22 @@ class GradeController extends Controller
      */
     public function create()
     {
-        //
+        return view('grades.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreGradeRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGradeRequest $request)
+    public function store(Request $request)
     {
-        //
+        //persist a new grade
+
+        Grade::create($this->ValidateGrade($request));
+
+        return redirect('/grade');
     }
 
     /**
@@ -47,7 +53,7 @@ class GradeController extends Controller
      */
     public function show(Grade $grade)
     {
-        //
+        return view('grades.show', ['grade' => $grade]);
     }
 
     /**
@@ -59,18 +65,23 @@ class GradeController extends Controller
     public function edit(Grade $grade)
     {
         //
+
+        return view('grades.edit', ['grade' => $grade]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateGradeRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGradeRequest $request, Grade $grade)
+    public function update(Request $request, Grade $grade)
     {
         //
+        $grade->update($this->validateForm($request));
+
+        return redirect('grades.index');
     }
 
     /**
@@ -81,6 +92,24 @@ class GradeController extends Controller
      */
     public function destroy(Grade $grade)
     {
-        //
+        // de
+        $grade->delete();
+
+        return redirect('grades.index');
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function validateGrade(Request $request): array
+    {
+        return $request->validate([
+            'course_name' => 'required',
+            'test_name' => 'required',
+            'lowest_passing_grade' => 'required|gte:0|lte:10',
+            'best_grade' => 'required|gte:0|lte:10',
+            'passed_at' => 'required',
+        ]);
     }
 }

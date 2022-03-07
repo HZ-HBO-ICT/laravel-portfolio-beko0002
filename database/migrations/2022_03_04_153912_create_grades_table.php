@@ -16,6 +16,7 @@ class CreateGradesTable extends Migration
         Schema::create('grades', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('course_name');
+            $table->decimal('EC')->nullable();
             $table->string('test_name');
             $table->decimal('lowest_passing_grade',)->default('5.5')->comment('Lowest grade to pass so average calculations can be applied');
             $table->decimal('best_grade')->nullable();

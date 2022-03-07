@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Grade extends Model
 {
     use HasFactory;
-
     public function addResult($newResult){
         if ($newResult <= $this->best_grade) {
             $this->best_grade = $this->best_grade;
